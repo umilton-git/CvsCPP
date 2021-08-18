@@ -15,4 +15,6 @@ class Node
 		std::string word;
 		Node* next;
 		Node* prev;
-}
+};
+
+#endif

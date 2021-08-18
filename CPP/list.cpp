@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "list.hpp"
 
 Node::Node()
 {
@@ -14,14 +14,15 @@ Node::Node(std::string value)
 	prev = nullptr;
 }
 
-Node::append(std::string value)
+void Node::append(std::string value)
 {
-	temp = new Node(value);
+	Node* temp = new Node(value);
 	this->next = temp;
 	temp->prev = this;
+	return;
 }
 
-Node::read()
+std::string Node::read()
 {
-	return this->word;
+	return word;
 }
