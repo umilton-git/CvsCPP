@@ -14,14 +14,6 @@ Node::Node(std::string value)
 	prev = nullptr;
 }
 
-void Node::append(std::string value)
-{
-	Node* temp = new Node(value);
-	this->next = temp;
-	temp->prev = this;
-	return;
-}
-
 std::string Node::read()
 {
 	return word;

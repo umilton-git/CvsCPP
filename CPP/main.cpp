@@ -4,26 +4,43 @@
 int main()
 {
 	std::string input;
-	Node* inputNode = new Node;
+	Node* inputNode;
 	while(input != "STOP")
 	{
 		std::cout << "Enter a word: ";
 		std::cin >> input;
 		if(input != "STOP" && inputNode == nullptr)
 		{
-			*inputNode = Node(input);
+			inputNode = new Node(input);
 		}
 
 		else if(input != "STOP")
 		{
-			inputNode->append(input);
+			Node* temp = new Node(input);
+			temp->prev = inputNode;
+			inputNode->next = temp;
+			inputNode = inputNode->next;
 		}
 
 		else 
-		{
+	        {
 			break;
 		}
 	}
 	std::cout << "Printing input in reverse." << std::endl;
-	std::cout << inputNode->read() << std::endl;
+	while(inputNode->read() != "")
+	{
+
+		std::cout << inputNode->read() << std::endl;
+		inputNode = inputNode->prev;
+	}
+
+	Node *temp = new Node();
+	inputNode = inputNode->next;
+	while(inputNode->next != nullptr)
+	{
+		temp = inputNode;
+		inputNode = inputNode->next;
+		free(temp);
+	}
 }
