@@ -17,9 +17,9 @@ Reads strings from doubly linked list until "STOP" is read, then displays in rev
 typedef struct Node{
 	struct Node *next;
 	struct Node *prev;
-	char[100] word; 
-}
+	char word[100]; 
+} Node;
 
-extern int append(struct Node *n, char[100] w);
+extern void append(struct Node** n, char w[100]);
 
 #endif
