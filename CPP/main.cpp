@@ -14,17 +14,23 @@ Reads strings from doubly linked list until "STOP" is read, then displays in rev
 
 int main()
 {
+	// The input string
 	std::string input;
+
+	// The input node
 	Node* inputNode;
 	while(input != "STOP")
 	{
 		std::cout << "Enter a word: ";
 		std::cin >> input;
+		
+		// Create the initial node
 		if(input != "STOP" && inputNode == nullptr)
 		{
 			inputNode = new Node(input);
 		}
-
+		
+		// Creates new nodes with new words while STOP isn't input
 		else if(input != "STOP")
 		{
 			Node* temp = new Node(input);
@@ -32,12 +38,15 @@ int main()
 			inputNode->next = temp;
 			inputNode = inputNode->next;
 		}
-
+		
+		// Break if STOP is input
 		else 
 	        {
 			break;
 		}
 	}
+
+	// Print in reverse
 	std::cout << "Printing input in reverse." << std::endl;
 	while(inputNode->read() != "")
 	{
@@ -46,6 +55,7 @@ int main()
 		inputNode = inputNode->prev;
 	}
 
+	// Free the allocated data
 	Node *temp = new Node();
 	inputNode = inputNode->next;
 	while(inputNode->next != nullptr)

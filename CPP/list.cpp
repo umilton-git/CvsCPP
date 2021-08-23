@@ -11,6 +11,7 @@ Reads strings from doubly linked list until "STOP" is read, then displays in rev
 
 #include "list.hpp"
 
+// Initializer
 Node::Node()
 {
 	word = "";
@@ -18,6 +19,7 @@ Node::Node()
 	prev = nullptr;
 }
 
+// Initializer w/ value
 Node::Node(std::string value)
 {
 	word = value;
@@ -25,6 +27,7 @@ Node::Node(std::string value)
 	prev = nullptr;
 }
 
+// Returns the word in the current node
 std::string Node::read()
 {
 	return word;
