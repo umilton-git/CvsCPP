@@ -21,5 +21,6 @@ typedef struct Node{
 } Node;
 
 extern void append(struct Node** n, char w[100]);
+extern void output(struct Node** n);
 
 #endif

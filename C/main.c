@@ -13,4 +13,5 @@ int main()
 		append(&linkedlist, input);
 		}
 	}
+	output(&linkedlist);
 }

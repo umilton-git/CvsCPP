@@ -8,7 +8,7 @@ void append(struct Node** n, char w[100])
 {
 	struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
 	struct Node *last = *n;
-	strcpy(w, temp->word);
+	strncpy(temp->word, w, 100);
 	temp->next = NULL;
 	if(*n == NULL)
 	{
@@ -22,5 +22,22 @@ void append(struct Node** n, char w[100])
 	}
 	last->next = temp;
 	temp->prev = last;
+	return;
+}
+
+void output(struct Node** n)
+{
+	printf("Outputting in reverse order:\n");
+	struct Node *last = *n;
+	while(last->next != NULL)
+	{
+		last = last->next;
+	}
+	while(last->prev != NULL)
+	{
+		printf("%s", last->word);
+		printf("\n");
+		last = last->prev;
+	}
 	return;
 }
